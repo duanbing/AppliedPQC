@@ -755,8 +755,10 @@ rather than in how fast they run.
 
 \begin{itemize}
   \item \textbf{Hash-based} commitments --- FRI, and its successors STIR and
-        WHIR --- open a Merkle tree, so the assumption is a random oracle plus
-        collision resistance, with nothing algebraic underneath. This is what
+        WHIR --- open a Merkle tree, so the assumptions are a random oracle
+        plus collision resistance, together with the proximity-gap conjectures
+        under which the proof of proximity is sound at its concrete
+        parameters, and nothing algebraic underneath. This is what
         makes a STARK post-quantum, and it is why the memory-check bug of
         Section~\ref{sec:symmetric-plumbing} was a bug rather than a design
         choice: an elliptic-curve accumulator had been placed inside a system
@@ -1106,7 +1108,7 @@ care what the commitment is made of.
 PCS & Commitment is & Rests on & Setup & Survives Shor? \\
 \midrule
 KZG & one group element & pairings; discrete log & structured, trusted & \textbf{no} \\
-FRI / WHIR & a Merkle root & random oracle; collision resistance & transparent & yes \\
+FRI / WHIR & a Merkle root & random oracle; collision resistance; proximity-gap conjectures & transparent & yes \\
 Ajtai & $\mathbf{t}=\mathbf{A}\mathbf{s}$, $\kappa$ ring elements & Module-SIS (+ random oracle once compiled) & transparent & yes \\
 \bottomrule
 \end{tabular}
